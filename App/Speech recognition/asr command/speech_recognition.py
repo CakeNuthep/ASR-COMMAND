@@ -14,12 +14,7 @@ import time
 
 hmm_models = []
 
-# Function to parse input arguments
-def build_arg_parser():
-    parser = argparse.ArgumentParser(description='Trains the HMM classifier')
-    parser.add_argument("--input-folder", dest="input_folder", required=True,
-            help="Input folder containing the audio files in subfolders")
-    return parser
+
 
 def listenCommand(wave,rate):
     # Extract MFCC features
@@ -37,9 +32,10 @@ def listenCommand(wave,rate):
             max_score = score
             output_label = label
 
-    # Print the output
-    # print("\nTrue:", input_file[input_file.find('/') + 1:input_file.rfind('/')])
+   
     print("Predicted:", output_label)
+    
+    #send keyCode
     keyCode = int(output_label.split('\\')[1])
     if keyCode == k.VK_DOWN:
         sendKey.PressKey(k.VK_DOWN)
@@ -88,42 +84,7 @@ if __name__=='__main__':
                 hmm_trainer = None
 
     
-    # # Test files
-    # input_files = [
-    #     'data/pineapple/pineapple15.wav',
-    #     'data/orange/orange15.wav',
-    #     'data/apple/apple15.wav',
-    #     'data/kiwi/kiwi15.wav'
-    # ]    # Classify input data
-
+   
     tt = TapTester()
     while(True):
         tt.listenCommand(listenCommand)
-    
-    input_files = [
-        './sound/38/38_107.wav',
-        './sound/38/38_123.wav',
-        './sound/40/40_83.wav'
-    ]    # Classify input data
-
-    for input_file in input_files:
-        # Read input file
-        sampling_freq, audio = wavfile.read(input_file)
-        # Extract MFCC features
-        mfcc_features = mfcc(audio, sampling_freq)
-        # Define variables
-        max_score = None
-        output_label = None
-
-        # Iterate through all HMM models and pick
-        # the one with the highest score
-        for item in hmm_models:
-            hmm_model, label = item
-            score = hmm_model.get_score(mfcc_features)
-            if max_score is None or score > max_score:
-                max_score = score
-                output_label = label
-
-        # Print the output
-        print("\nTrue:", input_file[input_file.find('/') + 1:input_file.rfind('/')])
-        print("Predicted:", output_label)

@@ -148,15 +148,6 @@ class TapTester(object):
                 self.stream.write(dataWav)
                 numpydata = np.frombuffer(dataWav, dtype=np.int16)
                 callbackFunction(numpydata,RATE)
-                '''rootPath = ".\\Sound\\"+str(label)
-                if not os.path.exists(rootPath):
-                    os.mkdir(rootPath)
-                wf = wave.open(rootPath+"\\"+str(label)+"_"+str(count)+".wav", 'wb')
-                wf.setnchannels(CHANNELS)
-                wf.setsampwidth(self.pa.get_sample_size(FORMAT))
-                wf.setframerate(RATE)
-                wf.writeframes(dataWav)
-                wf.close()'''
             self.frames = []
             
             if 1 <= self.noisycount <= MAX_TAP_BLOCKS:

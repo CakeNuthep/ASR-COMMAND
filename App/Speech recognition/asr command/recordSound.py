@@ -11,4 +11,4 @@ if __name__=='__main__':
     count=0
     while True:
         count+=1
-        tt.record(k.VK_DOWN,count)
+        tt.record(k.VK_UP,count)

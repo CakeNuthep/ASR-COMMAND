@@ -1,3 +1,4 @@
+# msdn.microsoft.com/en-us/library/dd375731
 class KeyCodeModel:
     VK_TAB  = 0x09
     VK_MENU = 0x12

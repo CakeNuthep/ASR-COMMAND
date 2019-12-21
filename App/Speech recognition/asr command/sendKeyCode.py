@@ -1,6 +1,7 @@
 import ctypes
 from ctypes import wintypes
 import time
+from KeyCodeModel import KeyCodeModel as k
 
 user32 = ctypes.WinDLL('user32', use_last_error=True)
 
@@ -14,13 +15,6 @@ KEYEVENTF_UNICODE     = 0x0004
 KEYEVENTF_SCANCODE    = 0x0008
 
 MAPVK_VK_TO_VSC = 0
-
-# msdn.microsoft.com/en-us/library/dd375731
-VK_TAB  = 0x09
-VK_MENU = 0x12
-VK_UP = 0x26
-VK_DOWN = 0x28
-VK_SPACE = 0x20
 
 # C struct definitions
 
@@ -92,11 +86,11 @@ def AltTab():
     """Press Alt+Tab and hold Alt key for 2 seconds
     in order to see the overlay.
     """
-    PressKey(VK_MENU)   # Alt
-    PressKey(VK_TAB)    # Tab
-    ReleaseKey(VK_TAB)  # Tab~
+    PressKey(k.VK_MENU)   # Alt
+    PressKey(k.VK_TAB)    # Tab
+    ReleaseKey(k.VK_TAB)  # Tab~
     time.sleep(2)
-    ReleaseKey(VK_MENU) # Alt~
+    ReleaseKey(k.VK_MENU) # Alt~
 
 if __name__ == "__main__":
     AltTab()
