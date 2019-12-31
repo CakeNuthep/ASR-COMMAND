@@ -1,6 +1,6 @@
 "# ASR-COMMAND" 
 
-[![](http://img.youtube.com/vi/ejPXZorkOws/0.jpg)](http://www.youtube.com/watch?v=ejPXZorkOws "ASR Command")
+[![https://github.com/CakeNuthep/ASR-COMMAND/blob/master/App/img/img_video.PNG](http://img.youtube.com/vi/ejPXZorkOws/0.jpg)](http://www.youtube.com/watch?v=ejPXZorkOws "ASR Command")
 
 ###lib
 - pyaudio
